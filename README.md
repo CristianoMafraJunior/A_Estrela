@@ -20,3 +20,7 @@ Portanto, a função de custo total (f(x)) é dada por:
 f(x) = g(x) + h(x)
 
 O Algoritmo A\* utiliza essa função de custo para escolher os próximos nós a serem explorados na busca pelo caminho mais curto.
+
+## Trabalho em desenvolvimento
+
+Todas contribuições serão muito bem-vindas para o projeto.
