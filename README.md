@@ -20,3 +20,13 @@ Portanto, a função de custo total (f(x)) é dada por:
 f(x) = g(x) + h(x)
 
 O Algoritmo A\* utiliza essa função de custo para escolher os próximos nós a serem explorados na busca pelo caminho mais curto.
+
+## Executar o Algoritimo  e Teste
+```
+python3 main.py mapa.txt
+python3 main.py teste_2.txt
+python3 main.py teste.txt
+```
+
+## Creditos
+Este é um clone do projeto a_estrela [clique aqui](https://github.com/malufreitas/a-estrela), originalmente criado por Edson Bernardino [Maria Luiza](https://github.com/malufreitas) e [Tarcísio Bruni](https://github.com/tarcisiobruni).
