@@ -1,32 +1,50 @@
-# Lista de cidades
-cidades = [
-    "São Paulo",
-    "Santos",
-    "Capivariano",
-    "Bauru",
-]
+class A_Estrela:
+    def __init__(self):
+        self.cidades = {
+            "Araçatuba": {"Votuporanga": 127, "Novo Horizonte": 183, "Marília": 170},
+            "Votuporanga": {"Araçatuba": 127, "Barretos": 179},
+            "Barretos": {"Votuporanga": 179, "Araraquara": 152, "Marília": 161},
+            "Marília": {"Barretos": 161, "Araçatuba": 170, "Novo Horizonte": 141},
+            "Novo Horizonte": {"Araçatuba": 183, "Bauru": 105, "Marília": 141},
+            "Bauru": {"Novo Horizonte": 105, "Rio Claro": 181, "Araraquara": 129},
+            "Araraquara": {"Barretos": 152, "Bauru": 129, "Rio Claro": 105},
+            "Rio Claro": {
+                "Araraquara": 105,
+                "Limeira": 26,
+                "Piracicaba": 40,
+                "Bauru": 181,
+            },
+            "Piracicaba": {"Rio Claro": 40, "Limeira": 35},
+            "Limeira": {
+                "Rio Claro": 26,
+                "Piracicaba": 35,
+                "Sorocaba": 138,
+                "Campinas": 56,
+            },
+            "Sorocaba": {"Limeira": 138, "Campinas": 90, "Santos": 104},
+            "Campinas": {"Limeira": 56, "Sorocaba": 90, "Jundiaí": 41},
+            "Jundiaí": {"Campinas": 41, "São Paulo": 59},
+            "São Paulo": {"Jundiaí": 59, "Santos": 81},
+            "Santos": {"Sorocaba": 104, "São Paulo": 81},
+        }
 
-# Matriz de distâncias entre as cidades (em quilômetros)
-distancias_entre_cidades = [
-    [0, 81, 203, 349],
-    [81, 0, 164, 290],
-    [203, 164, 0, 155],
-    [349, 290, 155, 0],
-]
+        self.heuristica = {
+            "São Paulo": 0,
+            "Santos": 50,
+            "Jundiaí": 50,
+            "Campinas": 85,
+            "Sorocaba": 86,
+            "Limeira": 134,
+            "Piracicaba": 137,
+            "Rio Claro": 157,
+            "Ararquara": 255,
+            "Bauru": 284,
+            "Novo Horizonte": 352,
+            "Marília": 370,
+            "Barretos": 386,
+            "Votuporanga": 471,
+            "Araçatuba": 490,
+        }
 
-distancias_linha_reta = []
-
-
-cidade1 = input("Ponto Inicial: ")
-cidade2 = input("Ponto Final: ")
-
-if cidade1 in cidades and cidade2 in cidades:
-    # Obter Índices
-    indice_cidade1 = cidades.index(cidade1)
-    indice_cidade2 = cidades.index(cidade2)
-
-    quilometragem = distancias_entre_cidades[indice_cidade1][indice_cidade2]
-
-    print(f"Quilometragem entre {cidade1} e {cidade2}: {quilometragem} km")
-else:
-    print("Cidades não encontradas")
+    def a_estrela(self, inicio, destino):
+        pass
