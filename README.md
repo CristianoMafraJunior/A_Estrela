@@ -30,3 +30,4 @@ python3 main.py teste.txt
 
 ## Creditos
 Este é um clone do projeto a_estrela [clique aqui](https://github.com/malufreitas/a-estrela), originalmente criado por Edson Bernardino [Maria Luiza](https://github.com/malufreitas) e [Tarcísio Bruni](https://github.com/tarcisiobruni).
+oiiieee o/o/o/
