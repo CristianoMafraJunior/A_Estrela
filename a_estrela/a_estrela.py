@@ -37,7 +37,7 @@ class A_Estrela:
             "Limeira": 134,
             "Piracicaba": 137,
             "Rio Claro": 157,
-            "Ararquara": 255,
+            "Araraquara": 255,
             "Bauru": 284,
             "Novo Horizonte": 352,
             "Marília": 370,
