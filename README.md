@@ -21,6 +21,14 @@ f(x) = g(x) + h(x)
 
 O Algoritmo A\* utiliza essa função de custo para escolher os próximos nós a serem explorados na busca pelo caminho mais curto.
 
+## Grafo utilizado no desenvolvimento
+
+![Grafo_Atual](https://github.com/CristianoMafraJunior/A_Estrela/assets/142639425/5a3554c4-b754-4d79-beff-06ec5e089481)
+
+Cidade Inicial: Araçatuba
+
+Cidade Final: São Paulo
+
 ## Trabalho em desenvolvimento
 
 Todas contribuições serão muito bem-vindas para o projeto.
