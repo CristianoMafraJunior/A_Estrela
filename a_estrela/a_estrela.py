@@ -1,3 +1,6 @@
+import heapq
+
+
 class A_Estrela:
     def __init__(self):
         self.cidades = {
@@ -47,4 +50,56 @@ class A_Estrela:
         }
 
     def a_estrela(self, inicio, destino):
-        pass
+        fila_prioridade = []
+        heapq.heappush(fila_prioridade, (0, inicio))
+        visitados = set()
+        caminho_percorrido = {inicio: None}
+        custo_total = {cidade: float("inf") for cidade in self.cidades}
+        custo_total[inicio] = 0
+
+        while fila_prioridade:
+            custo_atual, cidade_atual = heapq.heappop(fila_prioridade)
+
+            if cidade_atual == destino:
+                caminho = self.reconstruir_caminho(caminho_percorrido, destino)
+                return custo_total[destino], caminho
+
+            if cidade_atual in visitados:
+                continue
+
+            visitados.add(cidade_atual)
+
+            print(f"Visitando: {cidade_atual}")
+
+            for vizinho, custo in self.cidades[cidade_atual].items():
+                novo_custo = custo_total[cidade_atual] + custo
+                custo_heuristica = self.heuristica[vizinho]
+                if novo_custo < custo_total[vizinho]:
+                    custo_total[vizinho] = novo_custo
+                    heapq.heappush(
+                        fila_prioridade, (novo_custo + custo_heuristica, vizinho)
+                    )
+                    caminho_percorrido[vizinho] = cidade_atual
+
+                    print(
+                        f"  - {vizinho}: Custo atual: {novo_custo}, Heurística: {custo_heuristica}, Total: {novo_custo + custo_heuristica}"
+                    )
+
+        return float("inf"), []
+
+    def reconstruir_caminho(self, caminho_percorrido, destino):
+        caminho = []
+        cidade = destino
+        while cidade is not None:
+            caminho.append(cidade)
+            cidade = caminho_percorrido[cidade]
+        return list(reversed(caminho))
+
+
+# Exemplo de uso
+a = A_Estrela()
+inicio = "Araçatuba"
+destino = "São Paulo"
+custo_total, caminho = a.a_estrela(inicio, destino)
+print(f"Custo total de {inicio} a {destino}: {custo_total}")
+print("Caminho percorrido:", caminho)
