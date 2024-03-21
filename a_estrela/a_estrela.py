@@ -97,9 +97,9 @@ class A_Estrela:
 
 
 # Exemplo de uso
-a = A_Estrela()
+estrela = A_Estrela()
 inicio = "Araçatuba"
 destino = "São Paulo"
-custo_total, caminho = a.a_estrela(inicio, destino)
+custo_total, caminho = estrela.a_estrela(inicio, destino)
 print(f"Custo total de {inicio} a {destino}: {custo_total}")
 print("Caminho percorrido:", caminho)
