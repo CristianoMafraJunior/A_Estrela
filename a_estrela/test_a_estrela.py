@@ -14,14 +14,14 @@ class TestAEstrela(unittest.TestCase):
         self.assertEqual(
             caminho,
             [
-                "Araçatuba",
-                "Novo Horizonte",
-                "Bauru",
-                "Rio Claro",
-                "Limeira",
-                "Campinas",
-                "Jundiaí",
-                "São Paulo",
+                ("Araçatuba", 0, 490, 490),
+                ("Novo Horizonte", 183, 352, 535),
+                ("Bauru", 288, 284, 572),
+                ("Rio Claro", 469, 157, 626),
+                ("Limeira", 495, 134, 629),
+                ("Campinas", 551, 85, 636),
+                ("Jundiaí", 592, 50, 642),
+                ("São Paulo", 651, 0, 651),
             ],
         )
 
