@@ -61,15 +61,15 @@ class A_Estrela:
             custo_atual, cidade_atual = heapq.heappop(fila_prioridade)
 
             if cidade_atual == destino:
-                caminho = self.reconstruir_caminho(caminho_percorrido, destino)
+                caminho = self.reconstruir_caminho(
+                    caminho_percorrido, destino, custo_total
+                )
                 return custo_total[destino], caminho
 
             if cidade_atual in visitados:
                 continue
 
             visitados.add(cidade_atual)
-
-            print(f"Visitando: {cidade_atual}")
 
             for vizinho, custo in self.cidades[cidade_atual].items():
                 novo_custo = custo_total[cidade_atual] + custo
@@ -81,17 +81,20 @@ class A_Estrela:
                     )
                     caminho_percorrido[vizinho] = cidade_atual
 
-                    print(
-                        f"  - {vizinho}: Custo atual: {novo_custo}, Heurística: {custo_heuristica}, Total: {novo_custo + custo_heuristica}"
-                    )
-
         return float("inf"), []
 
-    def reconstruir_caminho(self, caminho_percorrido, destino):
+    def reconstruir_caminho(self, caminho_percorrido, destino, custo_total):
         caminho = []
         cidade = destino
         while cidade is not None:
-            caminho.append(cidade)
+            caminho.append(
+                (
+                    cidade,
+                    custo_total[cidade],
+                    self.heuristica[cidade],
+                    custo_total[cidade] + self.heuristica[cidade],
+                )
+            )
             cidade = caminho_percorrido[cidade]
         return list(reversed(caminho))
 
@@ -102,4 +105,8 @@ inicio = "Araçatuba"
 destino = "São Paulo"
 custo_total, caminho = estrela.a_estrela(inicio, destino)
 print(f"Custo total de {inicio} a {destino}: {custo_total}")
-print("Caminho percorrido:", caminho)
+print("Caminho percorrido:")
+for cidade, custo_atual, heuristica, total in caminho:
+    print(
+        f" - {cidade}: Custo atual: {custo_atual}, Heurística: {heuristica}, Total: {total}"
+    )
